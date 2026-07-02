@@ -3,30 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Haddad Empire — United by Blood. Bound by Legacy.</title>
+  <title>Haddad Empire — Private Office, Heritage, and Strategic Stewardship</title>
+  <meta
+    name="description"
+    content="The official digital headquarters of Haddad Empire — a private office platform for heritage stewardship, strategic initiatives, governance records, and legacy planning."
+  />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
   <style>
     :root {
       --bg-dark: #05070a;
       --bg-mid: #0f1724;
+      --bg-soft: #101826;
       --gold: #c9a45c;
       --gold-light: #e3c472;
       --gold-dark: #8c7344;
+      --text-main: #efe2c2;
       --text-muted: #bfa882;
+      --text-soft: #9ca3af;
       --text-on-gold: #1a1206;
-      --card-bg: #0f172a;
-      --card-border: #1f2937;
+      --card-bg: rgba(15, 23, 42, 0.92);
+      --card-border: rgba(201, 164, 92, 0.16);
+      --surface-border: rgba(201, 164, 92, 0.28);
+      --shadow-gold: 0 18px 40px rgba(5, 7, 10, 0.35);
+      --shell-width: 1200px;
     }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      background: var(--bg-dark);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      background:
+        radial-gradient(circle at top, rgba(201, 164, 92, 0.08), transparent 24%),
+        linear-gradient(180deg, var(--bg-mid) 0%, var(--bg-dark) 35%, #040507 100%);
       color: var(--text-muted);
       min-height: 100vh;
       overflow-x: hidden;
     }
+
+    a { color: inherit; }
+
+    .shell {
+      width: min(var(--shell-width), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
     .hero {
       position: relative;
       min-height: 100vh;
@@ -35,242 +62,1229 @@
       background:
         repeating-linear-gradient(
           45deg,
-          rgba(201, 164, 92, 0.03) 0px,
+          rgba(201, 164, 92, 0.03) 0,
           rgba(201, 164, 92, 0.03) 1px,
           transparent 1px,
           transparent 60px
         ),
-        radial-gradient(ellipse at center, var(--bg-mid) 0%, var(--bg-dark) 70%);
+        radial-gradient(ellipse at center, rgba(15, 23, 36, 0.98) 0%, var(--bg-dark) 72%);
     }
-    header {
-      width: 100%;
-      padding: 18px 40px;
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(5, 7, 10, 0.78);
+      border-bottom: 1px solid rgba(201, 164, 92, 0.2);
+    }
+
+    .header-inner {
+      min-height: 82px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid var(--gold-dark);
-      position: relative;
-      z-index: 10;
+      gap: 24px;
+      padding: 18px 0;
     }
-    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .brand img { height: 46px; width: auto; filter: drop-shadow(0 0 6px rgba(201, 164, 92, 0.25)); }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .brand img {
+      height: 46px;
+      width: auto;
+      filter: drop-shadow(0 0 6px rgba(201, 164, 92, 0.25));
+    }
+
     .brand span {
-      font-family: 'Cinzel', serif; font-size: 16px; letter-spacing: 3px;
-      color: var(--gold); text-transform: uppercase;
+      font-family: "Cinzel", serif;
+      font-size: 16px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-transform: uppercase;
     }
-    nav ul { list-style: none; display: flex; gap: 28px; flex-wrap: wrap; }
-    nav a {
-      font-family: 'Cormorant Garamond', serif; font-size: 14px;
-      color: var(--text-muted); text-decoration: none; letter-spacing: 1px;
-      padding-bottom: 4px; border-bottom: 1px solid transparent;
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-list a {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 15px;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 1px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
       transition: color 0.3s ease, border-color 0.3s ease;
     }
-    nav a:hover, nav a.active { color: var(--gold); border-bottom: 1px solid var(--gold); }
+
+    .nav-list a:hover,
+    .nav-list a:focus-visible,
+    .nav-list a.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    .login-btn,
+    .btn,
+    .mini-link {
+      font-family: "Cinzel", serif;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
     .login-btn {
-      font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 1.5px;
-      color: var(--gold); text-decoration: none; padding: 10px 20px;
-      border: 1px solid var(--gold); transition: background 0.3s ease, color 0.3s ease;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      color: var(--gold);
+      padding: 10px 20px;
+      border: 1px solid var(--gold);
+      flex-shrink: 0;
     }
-    .login-btn:hover { background: var(--gold); color: var(--text-on-gold); }
+
+    .login-btn:hover,
+    .login-btn:focus-visible {
+      background: var(--gold);
+      color: var(--text-on-gold);
+    }
+
     .hero-content {
-      flex: 1; display: flex; flex-direction: column; align-items: center;
-      justify-content: center; text-align: center; padding: 60px 20px;
-      max-width: 900px; margin: 0 auto;
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+      padding: 56px 0 88px;
     }
-    .crest { width: min(420px, 65vw); height: auto; margin-bottom: 28px; filter: drop-shadow(0 0 28px rgba(201, 164, 92, 0.35)); }
+
+    .hero-copy {
+      max-width: 720px;
+    }
+
+    .crest {
+      width: min(420px, 65vw);
+      height: auto;
+      margin-bottom: 30px;
+      filter: drop-shadow(0 0 28px rgba(201, 164, 92, 0.35));
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Cinzel", serif;
+      color: var(--text-main);
+      font-weight: 400;
+    }
+
     h1 {
-      font-family: 'Cinzel', serif; font-size: clamp(48px, 8vw, 110px);
-      font-weight: 400; letter-spacing: 4px;
+      font-size: clamp(48px, 8vw, 108px);
+      letter-spacing: 4px;
+      line-height: 0.98;
       background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       margin-bottom: 18px;
     }
-    .divider { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; width: 100%; max-width: 700px; }
-    .divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-dark), transparent); }
-    .divider-dots { display: flex; gap: 8px; }
-    .divider-dots span { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); }
-    .tagline { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-style: italic; color: var(--gold); letter-spacing: 1px; margin-bottom: 28px; }
-    .description { font-size: 18px; line-height: 1.7; max-width: 650px; color: var(--text-muted); margin-bottom: 40px; }
-    .cta-group { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+      width: 100%;
+      max-width: 700px;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+    }
+
+    .divider-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .divider-dots span {
+      width: 5px;
+      height: 5px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+
+    .tagline {
+      font-size: 24px;
+      font-style: italic;
+      color: var(--gold);
+      letter-spacing: 1px;
+      margin-bottom: 26px;
+    }
+
+    .description,
+    .body-copy {
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+
+    .description {
+      max-width: 680px;
+      margin-bottom: 40px;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
     .btn {
-      font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 2px;
-      text-transform: uppercase; padding: 16px 28px; text-decoration: none; transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 16px 28px;
+      border: 1px solid var(--gold);
     }
-    .btn-primary { background: var(--gold); color: var(--text-on-gold); border: 1px solid var(--gold); }
-    .btn-primary:hover { background: var(--gold-light); border-color: var(--gold-light); }
-    .btn-secondary { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
-    .btn-secondary:hover { background: rgba(201, 164, 92, 0.1); }
 
-    .portal-section { max-width: 1200px; margin: 0 auto; padding: 100px 24px; }
-    .portal-header { text-align: center; margin-bottom: 64px; }
-    .portal-eyebrow {
-      font-family: 'Cinzel', serif; color: var(--gold); font-size: 0.85rem;
-      letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 14px;
+    .btn-primary {
+      background: var(--gold);
+      color: var(--text-on-gold);
     }
-    .portal-title { font-family: 'Cinzel', serif; font-size: 3.75rem; font-weight: 400; font-style: italic; color: #f8f8f8; line-height: 1.1; margin-bottom: 22px; }
-    .portal-divider { color: var(--gold); font-size: 0.7rem; letter-spacing: 0.6em; }
-    .feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: rgba(201, 164, 92, 0.1);
+    }
+
+    .hero-panel,
+    .content-card,
+    .detail-card,
+    .stat-card,
+    .timeline-item,
+    .event-card,
+    .member-card,
+    .quote-panel,
+    .contact-card,
+    .access-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow-gold);
+    }
+
+    .hero-panel {
+      padding: 34px;
+      border-radius: 24px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .eyebrow {
+      font-family: "Cinzel", serif;
+      color: var(--gold);
+      font-size: 0.82rem;
+      letter-spacing: 0.36em;
+      text-transform: uppercase;
+    }
+
+    .hero-panel h2,
+    .section-header h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.08;
+      margin-bottom: 14px;
+    }
+
+    .section-stack {
+      padding: 92px 0;
+      border-top: 1px solid rgba(201, 164, 92, 0.12);
+    }
+
+    .portal-section {
+      padding-top: 108px;
+    }
+
+    .section-header {
+      margin-bottom: 42px;
+      max-width: 780px;
+    }
+
+    .section-intro {
+      font-family: "Inter", sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-soft);
+      max-width: 720px;
+    }
+
+    .portal-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .portal-title {
+      font-size: clamp(42px, 6vw, 64px);
+      font-style: italic;
+      margin-bottom: 18px;
+    }
+
+    .portal-divider {
+      color: var(--gold);
+      font-size: 0.7rem;
+      letter-spacing: 0.6em;
+    }
+
+    .feature-grid,
+    .two-column-grid,
+    .three-column-grid,
+    .gallery-grid,
+    .member-grid,
+    .contact-grid,
+    .stats-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .feature-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
     .feature-card {
-      background-color: var(--card-bg); border: 1px solid var(--card-border);
-      padding: 32px; display: flex; flex-direction: column; gap: 16px;
-      transition: border-color 0.3s ease, transform 0.3s ease;
+      min-height: 100%;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      border-radius: 22px;
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
     }
-    .feature-card:hover { border-color: rgba(201, 164, 92, 0.35); transform: translateY(-3px); }
-    .feature-card.wide { grid-column: span 2; }
-    .card-icon { width: 28px; height: 28px; color: var(--gold); flex-shrink: 0; }
-    .card-title { font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 600; color: var(--gold); line-height: 1.2; }
-    .card-text { font-family: 'Inter', sans-serif; font-size: 0.82rem; color: #9ca3af; line-height: 1.7; }
 
-    @media (max-width: 900px) {
-      header { flex-direction: column; gap: 16px; padding: 16px 20px; }
-      .feature-grid { grid-template-columns: repeat(2, 1fr); }
-      .feature-card.wide { grid-column: span 2; }
-      .portal-title { font-size: 2.75rem; }
+    .feature-card:hover,
+    .feature-card:focus-visible {
+      border-color: rgba(201, 164, 92, 0.42);
+      transform: translateY(-3px);
+      background: rgba(17, 25, 45, 0.96);
     }
-    @media (max-width: 600px) {
-      .feature-grid { grid-template-columns: 1fr; }
+
+    .feature-card.wide { grid-column: span 2; }
+
+    .feature-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .feature-link::after {
+      content: "Open section";
+      margin-top: auto;
+      font-family: "Cinzel", serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .card-icon {
+      width: 28px;
+      height: 28px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-size: 1.22rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1.2;
+    }
+
+    .card-text,
+    .list-text,
+    .micro-copy {
+      font-family: "Inter", sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--text-soft);
+    }
+
+    .two-column-grid {
+      grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+      align-items: start;
+    }
+
+    .three-column-grid,
+    .gallery-grid,
+    .member-grid,
+    .contact-grid,
+    .stats-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .content-card,
+    .detail-card,
+    .timeline-item,
+    .event-card,
+    .member-card,
+    .quote-panel,
+    .contact-card,
+    .access-card {
+      padding: 28px;
+      border-radius: 22px;
+    }
+
+    .content-card h3,
+    .detail-card h3,
+    .timeline-item h3,
+    .event-card h3,
+    .member-card h3,
+    .quote-panel h3,
+    .contact-card h3,
+    .access-card h3 {
+      margin-bottom: 12px;
+      font-size: 1.45rem;
+      color: var(--gold);
+    }
+
+    .detail-list,
+    .check-list,
+    .timeline-list,
+    .contact-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .detail-list li,
+    .check-list li,
+    .timeline-list li,
+    .contact-list li {
+      position: relative;
+      padding-left: 18px;
+      font-family: "Inter", sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--text-soft);
+    }
+
+    .detail-list li::before,
+    .check-list li::before,
+    .timeline-list li::before,
+    .contact-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 6px;
+      height: 6px;
+      transform: rotate(45deg);
+      background: var(--gold);
+    }
+
+    .stats-grid {
+      margin-top: 26px;
+    }
+
+    .stat-card {
+      padding: 22px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .stat-number {
+      display: block;
+      font-family: "Cinzel", serif;
+      font-size: 2rem;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-family: "Inter", sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-meta {
+      font-family: "Cinzel", serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .gallery-card {
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 10px;
+      background:
+        linear-gradient(180deg, rgba(5, 7, 10, 0.08), rgba(5, 7, 10, 0.88)),
+        linear-gradient(135deg, rgba(201, 164, 92, 0.22), rgba(15, 23, 42, 0.88));
+    }
+
+    .gallery-card:nth-child(2) {
+      background:
+        linear-gradient(180deg, rgba(5, 7, 10, 0.08), rgba(5, 7, 10, 0.88)),
+        linear-gradient(135deg, rgba(92, 130, 201, 0.18), rgba(15, 23, 42, 0.88));
+    }
+
+    .gallery-card:nth-child(3) {
+      background:
+        linear-gradient(180deg, rgba(5, 7, 10, 0.08), rgba(5, 7, 10, 0.88)),
+        linear-gradient(135deg, rgba(144, 201, 92, 0.16), rgba(15, 23, 42, 0.88));
+    }
+
+    .gallery-card:nth-child(4) {
+      background:
+        linear-gradient(180deg, rgba(5, 7, 10, 0.08), rgba(5, 7, 10, 0.88)),
+        linear-gradient(135deg, rgba(201, 92, 150, 0.16), rgba(15, 23, 42, 0.88));
+    }
+
+    .gallery-card .micro-copy,
+    .member-role,
+    .event-meta,
+    .quote-source {
+      color: var(--text-muted);
+    }
+
+    .event-meta,
+    .member-role,
+    .quote-source {
+      font-family: "Inter", sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .member-card {
+      display: grid;
+      gap: 10px;
+    }
+
+    .quote-panel blockquote {
+      font-size: 1.35rem;
+      line-height: 1.6;
+      color: var(--text-main);
+      font-style: italic;
+    }
+
+    .mini-link {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .cta-band {
+      margin-top: 42px;
+      padding: 28px 30px;
+      border: 1px solid var(--surface-border);
+      border-radius: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      background: linear-gradient(135deg, rgba(201, 164, 92, 0.08), rgba(15, 23, 42, 0.72));
+    }
+
+    .cta-band h3 {
+      margin-bottom: 6px;
+      font-size: 1.65rem;
+      color: var(--text-main);
+    }
+
+    .contact-card a,
+    .footer-links a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .site-footer {
+      border-top: 1px solid rgba(201, 164, 92, 0.18);
+      padding: 30px 0 48px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-family: "Inter", sans-serif;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 1100px) {
+      .header-inner,
+      .hero-content,
+      .cta-band,
+      .footer-inner {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-content,
+      .two-column-grid,
+      .three-column-grid,
+      .gallery-grid,
+      .member-grid,
+      .contact-grid,
+      .stats-grid,
+      .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-copy,
+      .hero-panel,
+      .two-column-grid > *,
+      .three-column-grid > *,
+      .gallery-grid > *,
+      .member-grid > *,
+      .contact-grid > *,
+      .stats-grid > * {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .shell { width: min(var(--shell-width), calc(100% - 32px)); }
+
+      .site-header { position: static; }
+
+      .header-inner {
+        align-items: flex-start;
+      }
+
+      .nav-list,
+      .cta-group,
+      .footer-links {
+        gap: 12px;
+      }
+
+      .feature-grid,
+      .hero-content,
+      .two-column-grid,
+      .three-column-grid,
+      .gallery-grid,
+      .member-grid,
+      .contact-grid,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
       .feature-card.wide { grid-column: span 1; }
-      .portal-section { padding: 64px 20px; }
-      .portal-title { font-size: 2.25rem; }
+
+      .section-stack,
+      .portal-section {
+        padding-top: 72px;
+        padding-bottom: 72px;
+      }
+
+      .hero-content {
+        padding-top: 44px;
+      }
+
+      .crest {
+        width: min(320px, 75vw);
+      }
     }
   </style>
 </head>
 <body>
-  <section class="hero">
-    <header>
-      <a href="#" class="brand">
-        <img src="assets/Haddad-crest.png" alt="Haddad Empire Emblem" />
-        <span>Haddad Empire</span>
-      </a>
-      <nav>
-        <ul>
-          <li><a href="#" class="active">Home</a></li>
-          <li><a href="#family-tree">Family Tree</a></li>
-          <li><a href="#history">History</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#vault">Vault</a></li>
-          <li><a href="#calendar">Calendar</a></li>
-          <li><a href="#members">Members</a></li>
-          <li><a href="#legacy">Legacy</a></li>
-          <li><a href="#business">Business</a></li>
-        </ul>
-      </nav>
-      <a href="#login" class="login-btn">Member Login</a>
+  <section class="hero" id="top">
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a href="#top" class="brand">
+          <img src="assets/Haddad-crest.png" alt="Haddad Empire Emblem" />
+          <span>Haddad Empire</span>
+        </a>
+        <nav aria-label="Primary">
+          <ul class="nav-list">
+            <li><a href="#top" class="active">Home</a></li>
+            <li><a href="#family-tree">Structure</a></li>
+            <li><a href="#history">Heritage</a></li>
+            <li><a href="#gallery">Portfolio</a></li>
+            <li><a href="#vault">Records</a></li>
+            <li><a href="#calendar">Agenda</a></li>
+            <li><a href="#members">Leadership</a></li>
+            <li><a href="#legacy">Legacy</a></li>
+            <li><a href="#business">Ventures</a></li>
+          </ul>
+        </nav>
+        <a href="#member-access" class="login-btn">Private Access</a>
+      </div>
     </header>
-    <main class="hero-content">
-      <img class="crest" src="assets/Haddad-crest.png" alt="Haddad Empire Crest" />
-      <h1>Haddad Empire</h1>
-      <div class="divider">
-        <div class="divider-line"></div>
-        <div class="divider-dots"><span></span><span></span><span></span></div>
-        <div class="divider-line"></div>
+
+    <main class="shell hero-content">
+      <div class="hero-copy">
+        <img class="crest" src="assets/Haddad-crest.png" alt="Haddad Empire Crest" />
+        <h1>Haddad Empire</h1>
+        <div class="divider" aria-hidden="true">
+          <div class="divider-line"></div>
+          <div class="divider-dots"><span></span><span></span><span></span></div>
+          <div class="divider-line"></div>
+        </div>
+        <p class="tagline">Governance. Heritage. Stewardship.</p>
+        <p class="description">
+          Welcome to the official digital headquarters of Haddad Empire — a private-office
+          environment for governance, archival continuity, strategic visibility, and
+          intergenerational stewardship across the broader Haddad legacy.
+        </p>
+        <div class="cta-group">
+          <a href="#portal" class="btn btn-primary">Enter the Private Portal</a>
+          <a href="#history" class="btn btn-secondary">Review Heritage</a>
+        </div>
       </div>
-      <p class="tagline">United by Blood. Bound by Legacy.</p>
-      <p class="description">
-        Welcome to the private digital home of the Haddad family — a living archive
-        of our history, our stories, and our future. This portal belongs to every
-        generation that carries our name.
-      </p>
-      <div class="cta-group">
-        <a href="#portal" class="btn btn-primary">Enter the Family Portal</a>
-        <a href="#history" class="btn btn-secondary">Our History</a>
-      </div>
+
+      <aside class="hero-panel" aria-label="Portal overview">
+        <p class="eyebrow">Private Office Platform</p>
+        <h2>A structured platform for governance, records, and long-term strategic continuity.</h2>
+        <p class="card-text">
+          The Haddad Empire portal is positioned as a formal executive platform — bringing
+          together organizational structure, heritage records, strategic initiatives,
+          leadership profiles, legacy materials, and operating priorities.
+        </p>
+        <ul class="check-list">
+          <li>Executive navigation across every major domain</li>
+          <li>Dedicated sections for governance, heritage, and records</li>
+          <li>Structured content ready for controlled internal updates</li>
+        </ul>
+      </aside>
     </main>
   </section>
 
-  <section class="portal-section" id="portal">
-    <header class="portal-header">
-      <p class="portal-eyebrow">The Portal</p>
-      <h2 class="portal-title">Explore the Empire</h2>
-      <div class="portal-divider" aria-hidden="true">• ◆ •</div>
-    </header>
-    <div class="feature-grid">
-      <article class="feature-card wide">
-        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22V12"/><path d="M12 12 8 8"/><path d="M12 12 16 8"/><circle cx="8" cy="6" r="3"/><circle cx="16" cy="6" r="3"/></svg>
-        <h3 class="card-title">Family Tree</h3>
-        <p class="card-text">Interactive generational tree with photos, birthdays, and relationship links.</p>
-      </article>
-      <article class="feature-card">
-        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2z"/><path d="M6 5H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h2"/><path d="M12 7v10"/></svg>
-        <h3 class="card-title">Family History</h3>
-        <p class="card-text">Origins, immigration, military service, achievements, and family stories.</p>
-      </article>
-      <article class="feature-card">
-        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-        <h3 class="card-title">Photo Gallery</h3>
-        <p class="card-text">Albums by year — weddings, holidays, birthdays, and childhood memories.</p>
-      </article>
-      <article class="feature-card">
-        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        <h3 class="card-title">Documents Vault</h3>
-        <p class="card-text">Password-protected storage for certificates, wills, and important records.</p>
-      </article>
-      <article class="feature-card wide">
-        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M4 9h16"/></svg>
-        <h3 class="card-title">Family Calendar</h3>
-        <p class="card-text">Birthdays, reunions, events, and reminders for the whole family.</p>
-      </article>
-      <article class="feature-card">
-        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        <h3 class="card-title">Members Area</h3>
-        <p class="card-text">Profiles, biographies, contact details, and role-based access.</p>
-      </article>
-      <article class="feature-card">
-        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v2"/><path d="M12 19v2"/><path d="M3 12h2"/><path d="M19 12h2"/></svg>
-        <h3 class="card-title">Legacy Vault</h3>
-        <p class="card-text">Life advice, audio messages, digital memories, and posthumous letters.</p>
-      </article>
-      <article class="feature-card">
-        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21h16"/><path d="M6 21V7l6-4 6 4v14"/><path d="M9 21V11"/><path d="M15 21V11"/><path d="M6 11h12"/></svg>
-        <h3 class="card-title">Family Business</h3>
-        <p class="card-text">Business directory, ownership information, investments, and projects.</p>
-      </article>
-      <article class="feature-card">
-        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9H4v2a5 5 0 0 0 5 5h6a5 5 0 0 0 5-5V9h-2"/><path d="M8 9V5h8v4"/><path d="M12 19v3"/><path d="M9 22h6"/></svg>
-        <h3 class="card-title">Achievement Wall</h3>
-        <p class="card-text">Degrees, awards, military service, and community contributions.</p>
-      </article>
-      <article class="feature-card">
-        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17h18"/><path d="M4 17a8 8 0 0 1 16 0"/><path d="M12 9V5"/></svg>
-        <h3 class="card-title">Family Cookbook</h3>
-        <p class="card-text">Recipes, photos, videos, and the flavors that define our heritage.</p>
-      </article>
+  <section class="portal-section section-stack" id="portal">
+    <div class="shell">
+      <header class="portal-header">
+        <p class="eyebrow">The Portal</p>
+        <h2 class="portal-title">Explore the Empire</h2>
+        <div class="portal-divider" aria-hidden="true">• ◆ •</div>
+      </header>
+
+      <div class="feature-grid">
+        <a href="#family-tree" class="feature-card feature-link wide">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22V12"/><path d="M12 12 8 8"/><path d="M12 12 16 8"/><circle cx="8" cy="6" r="3"/><circle cx="16" cy="6" r="3"/></svg>
+          <h3 class="card-title">Organizational Structure</h3>
+          <p class="card-text">Leadership branches, principal households, and the structural relationships that define the Haddad network.</p>
+        </a>
+        <a href="#history" class="feature-card feature-link">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2z"/><path d="M6 5H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h2"/><path d="M12 7v10"/></svg>
+          <h3 class="card-title">Heritage</h3>
+          <p class="card-text">Foundational history, migration milestones, institutional values, and the defining chapters behind the name.</p>
+        </a>
+        <a href="#gallery" class="feature-card feature-link">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          <h3 class="card-title">Portfolio Archive</h3>
+          <p class="card-text">A curated visual archive for milestone events, formal documentation, historic imagery, and brand-worthy records.</p>
+        </a>
+        <a href="#vault" class="feature-card feature-link">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <h3 class="card-title">Records Vault</h3>
+          <p class="card-text">Protected governance records, formal certificates, estate materials, and sensitive reference documentation.</p>
+        </a>
+        <a href="#calendar" class="feature-card feature-link wide">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M4 9h16"/></svg>
+          <h3 class="card-title">Executive Agenda</h3>
+          <p class="card-text">A consolidated schedule for key dates, planning cycles, milestone reviews, and high-priority coordination points.</p>
+        </a>
+        <a href="#members" class="feature-card feature-link">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <h3 class="card-title">Leadership Directory</h3>
+          <p class="card-text">Principal profiles, biographies, roles, and governance responsibilities arranged in one authoritative view.</p>
+        </a>
+        <a href="#legacy" class="feature-card feature-link">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v2"/><path d="M12 19v2"/><path d="M3 12h2"/><path d="M19 12h2"/></svg>
+          <h3 class="card-title">Legacy Vault</h3>
+          <p class="card-text">Legacy directives, institutional values, formal statements, and preserved guidance intended for future stewardship.</p>
+        </a>
+        <a href="#business" class="feature-card feature-link">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21h16"/><path d="M6 21V7l6-4 6 4v14"/><path d="M9 21V11"/><path d="M15 21V11"/><path d="M6 11h12"/></svg>
+          <h3 class="card-title">Strategic Ventures</h3>
+          <p class="card-text">Operating ventures, investment interests, opportunity tracking, and the practical framework behind growth.</p>
+        </a>
+        <a href="#achievement-wall" class="feature-card feature-link">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9H4v2a5 5 0 0 0 5 5h6a5 5 0 0 0 5-5V9h-2"/><path d="M8 9V5h8v4"/><path d="M12 19v3"/><path d="M9 22h6"/></svg>
+          <h3 class="card-title">Institutional Milestones</h3>
+          <p class="card-text">Academic, civic, commercial, and leadership milestones presented as part of the empire’s performance record.</p>
+        </a>
+        <a href="#cookbook" class="feature-card feature-link">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17h18"/><path d="M4 17a8 8 0 0 1 16 0"/><path d="M12 9V5"/></svg>
+          <h3 class="card-title">Hospitality Archive</h3>
+          <p class="card-text">Signature hosting standards, ceremonial menus, and tradition-led culinary records supporting institutional culture.</p>
+        </a>
+      </div>
     </div>
   </section>
 
-  <section id="contact" class="features" style="padding-top: 60px; padding-bottom: 30px;">
-    <div class="section-header">
-      <p class="section-subtitle">Get in Touch</p>
-      <h2 class="section-title">Contact Gabby Haddad</h2>
-      <p class="section-description">Questions about the Haddad Empire? Reach out directly.</p>
-    </div>
-    <div class="features-grid">
-      <article class="feature-card wide">
-        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-          <polyline points="22,6 12,13 2,6" />
-        </svg>
-        <h3 class="card-title">Email</h3>
-        <p class="card-text">
-          <a href="mailto:info@pathwaytoscripture.org" style="color: var(--gold); text-decoration: none;">info@pathwaytoscripture.org</a>
+  <section class="section-stack" id="family-tree">
+    <div class="shell">
+      <header class="section-header">
+        <p class="eyebrow">Structure</p>
+        <h2>The principal branches of Haddad Empire presented as a formal operating structure.</h2>
+        <p class="section-intro">
+          This section reframes the broader network as an organized structure, making it easier
+          to track key branches, succession lines, primary households, and governance relationships.
         </p>
-      </article>
-      <article class="feature-card wide">
-        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12 1.05.37 2.08.74 3.08a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.09-1.09a2 2 0 0 1 2.11-.45c1 .37 2.03.62 3.08.74A2 2 0 0 1 22 16.92z" />
-        </svg>
-        <h3 class="card-title">Phone</h3>
-        <p class="card-text">
-          <a href="tel:+61493993301" style="color: var(--gold); text-decoration: none;">0493 993 301</a>
-        </p>
-      </article>
+      </header>
+
+      <div class="two-column-grid">
+        <article class="content-card">
+          <h3>Structural overview</h3>
+          <p class="body-copy">
+            The Haddad structure is designed as a living institutional record. It can begin with
+            founding principals, branch into major lines of stewardship, and expand with profile
+            data, dates, notes, and decision-relevant reference points over time.
+          </p>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-number">4+</span>
+              <span class="stat-label">Stewardship tiers</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">1</span>
+              <span class="stat-label">Unified reference model</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">∞</span>
+              <span class="stat-label">Future expansion capacity</span>
+            </div>
+          </div>
+        </article>
+
+        <aside class="detail-card">
+          <h3>Recommended record fields</h3>
+          <ul class="detail-list">
+            <li>Formal name, preferred title, and branch designation</li>
+            <li>Key dates, succession notes, and memorial references</li>
+            <li>Relationship mapping across principal lines</li>
+            <li>Formal portraits and executive biographies</li>
+            <li>Career, service, and governance highlights</li>
+          </ul>
+        </aside>
+      </div>
     </div>
   </section>
 
-  <footer style="text-align:center; padding: 40px 20px; color: var(--gold-dark); font-size: 14px;">
-    <p>Contact: Gabby Haddad · <a href="tel:+61493993301" style="color: var(--gold);">0493 993 301</a> ·
-      <a href="mailto:info@pathwaytoscripture.org" style="color: var(--gold);">info@pathwaytoscripture.org</a></p>
-    <p style="margin-top: 10px;">&copy; 2026 Haddad Empire. All rights reserved.</p>
+  <section class="section-stack" id="history">
+    <div class="shell">
+      <header class="section-header">
+        <p class="eyebrow">Heritage</p>
+        <h2>Origins, migration, institutional values, and the defining chapters behind the name.</h2>
+        <p class="section-intro">
+          The heritage section anchors the platform with a formal narrative arc: where the name
+          began, how it expanded, what it established, and which values carried it forward.
+        </p>
+      </header>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <p class="timeline-meta">Chapter 1</p>
+          <h3>Foundation and early roots</h3>
+          <p class="card-text">
+            Document the founding locality, linguistic background, faith tradition, and the earliest
+            reference points that shaped the institutional identity of the Haddad name.
+          </p>
+        </article>
+        <article class="timeline-item">
+          <p class="timeline-meta">Chapter 2</p>
+          <h3>Migration and establishment</h3>
+          <p class="card-text">
+            Capture strategic relocation, settlement, and the individuals responsible for creating
+            the next operational base of the broader Haddad network.
+          </p>
+        </article>
+        <article class="timeline-item">
+          <p class="timeline-meta">Chapter 3</p>
+          <h3>Service, performance, and growth</h3>
+          <p class="card-text">
+            Highlight military service, education, enterprise, civic leadership, and the milestones
+            that established the name’s modern standing.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-stack" id="gallery">
+    <div class="shell">
+      <header class="section-header">
+        <p class="eyebrow">Portfolio Archive</p>
+        <h2>A curated visual archive designed for documentation, heritage, and formal presentation.</h2>
+        <p class="section-intro">
+          This archive is framed as a controlled visual repository for milestone events, institutional
+          imagery, and presentation-ready records rather than an informal photo album.
+        </p>
+      </header>
+
+      <div class="gallery-grid">
+        <article class="content-card gallery-card">
+          <h3>Formal ceremonies</h3>
+          <p class="micro-copy">Ceremonies, formal portraits, and flagship events documented to an executive standard.</p>
+        </article>
+        <article class="content-card gallery-card">
+          <h3>Milestone documentation</h3>
+          <p class="micro-copy">High-value anniversaries, key dates, and institutional achievements captured in one archive.</p>
+        </article>
+        <article class="content-card gallery-card">
+          <h3>Summits &amp; gatherings</h3>
+          <p class="micro-copy">Annual gatherings, planning sessions, and formal assemblies preserved for long-term reference.</p>
+        </article>
+        <article class="content-card gallery-card">
+          <h3>Archive highlights</h3>
+          <p class="micro-copy">Selected candid records, quiet milestones, and supporting imagery with historical value.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-stack" id="vault">
+    <div class="shell">
+      <header class="section-header">
+        <p class="eyebrow">Records Vault</p>
+        <h2>A secure repository for trusted records, governance materials, and sensitive reference data.</h2>
+        <p class="section-intro">
+          This area defines the protected archive with a more formal scope: official documentation,
+          legal references, estate materials, and high-sensitivity internal records.
+        </p>
+      </header>
+
+      <div class="three-column-grid">
+        <article class="detail-card">
+          <h3>Core records</h3>
+          <ul class="detail-list">
+            <li>Identity, estate, and certification records</li>
+            <li>Citizenship, migration, and legal references</li>
+            <li>Directives, authorizations, and emergency contacts</li>
+          </ul>
+        </article>
+        <article class="detail-card">
+          <h3>Estate documents</h3>
+          <ul class="detail-list">
+            <li>Wills, trusts, executorship, and guardianship directives</li>
+            <li>Property records and asset-level references</li>
+            <li>Instructions tied to major stewardship responsibilities</li>
+          </ul>
+        </article>
+        <article class="detail-card">
+          <h3>Access model</h3>
+          <ul class="detail-list">
+            <li>Role-based permission controls</li>
+            <li>Private notes for trusted administrators</li>
+            <li>Defined contributor, reviewer, and viewer roles</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-stack" id="calendar">
+    <div class="shell">
+      <header class="section-header">
+        <p class="eyebrow">Agenda</p>
+        <h2>Strategic dates, review cycles, and key coordination points in one consolidated agenda.</h2>
+        <p class="section-intro">
+          The agenda section gives the platform an operational cadence, positioning it as a working
+          internal hub rather than a ceremonial landing page.
+        </p>
+      </header>
+
+      <div class="three-column-grid">
+        <article class="event-card">
+          <p class="event-meta">January</p>
+          <h3>Annual planning cycle</h3>
+          <p class="card-text">Set operating priorities, key travel windows, and milestone reviews for the year ahead.</p>
+        </article>
+        <article class="event-card">
+          <p class="event-meta">Spring / Summer</p>
+          <h3>Assemblies and events</h3>
+          <p class="card-text">Formal gatherings, milestone events, and sector-specific meetings can be grouped by season.</p>
+        </article>
+        <article class="event-card">
+          <p class="event-meta">Year-round</p>
+          <h3>Standing reminders</h3>
+          <p class="card-text">Governance dates, memorial references, transitions, and critical check-ins remain visible.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-stack" id="members">
+    <div class="shell">
+      <header class="section-header">
+        <p class="eyebrow">Leadership</p>
+        <h2>Profiles that define who leads, advises, and stewards the broader Haddad platform.</h2>
+        <p class="section-intro">
+          The leadership directory is positioned as a formal reference for principal biographies,
+          roles, mandates, and governance responsibilities across the network.
+        </p>
+      </header>
+
+      <div class="member-grid">
+        <article class="member-card">
+          <p class="member-role">Senior principals</p>
+          <h3>Foundational leadership</h3>
+          <p class="card-text">Profiles can hold institutional guidance, branch leadership, and the historical authority behind the platform.</p>
+        </article>
+        <article class="member-card">
+          <p class="member-role">Operating stewards</p>
+          <h3>Current leadership layer</h3>
+          <p class="card-text">A practical view of active households, leadership roles, geography, and key coordination responsibilities.</p>
+        </article>
+        <article class="member-card">
+          <p class="member-role">Emerging principals</p>
+          <h3>Next-generation stewardship</h3>
+          <p class="card-text">A place to track the rising generation, future responsibilities, and long-term continuity planning.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-stack" id="legacy">
+    <div class="shell">
+      <header class="section-header">
+        <p class="eyebrow">Legacy Vault</p>
+        <h2>Institutional guidance, preserved values, and strategic intent designed to outlast any single generation.</h2>
+        <p class="section-intro">
+          This section turns legacy into a formal asset class: preserved guidance, recorded statements,
+          memorial documentation, and the principles intended to direct future stewardship.
+        </p>
+      </header>
+
+      <div class="two-column-grid">
+        <article class="quote-panel">
+          <h3>Legacy statement</h3>
+          <blockquote>
+            “The enduring value of Haddad Empire lies not only in what it builds,
+            but in what it preserves, governs, and transfers with discipline.”
+          </blockquote>
+          <p class="quote-source">Suggested institutional statement for the legacy archive</p>
+        </article>
+
+        <aside class="detail-card">
+          <h3>Legacy archive priorities</h3>
+          <ul class="detail-list">
+            <li>Letters, directives, and formal family-office guidance</li>
+            <li>Recorded statements from senior principals</li>
+            <li>Advice on stewardship, leadership, and resilience</li>
+            <li>Memorial tributes and curated legacy collections</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-stack" id="business">
+    <div class="shell">
+      <header class="section-header">
+        <p class="eyebrow">Ventures</p>
+        <h2>The ventures, investments, and strategic initiatives operating under the Haddad banner.</h2>
+        <p class="section-intro">
+          This page positions the platform more clearly as a private-office environment, with room for
+          enterprise summaries, operating priorities, partner context, and structured opportunity review.
+        </p>
+      </header>
+
+      <div class="three-column-grid">
+        <article class="detail-card">
+          <h3>Ventures</h3>
+          <p class="card-text">Catalog operating ventures, leadership roles, market sectors, and current priorities in a polished directory.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Investments</h3>
+          <p class="card-text">Track strategic holdings, long-range plans, and accountable stewards for each area.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Opportunities</h3>
+          <p class="card-text">Create a space for evaluated opportunities, partner introductions, and future initiatives across branches.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-stack" id="achievement-wall">
+    <div class="shell">
+      <header class="section-header">
+        <p class="eyebrow">Institutional Milestones</p>
+        <h2>A formal record of achievement, service, and measurable progress across the platform.</h2>
+        <p class="section-intro">
+          This section presents recognition as part of the official record, rather than leaving
+          major accomplishments distributed across biographies or historical notes.
+        </p>
+      </header>
+
+      <div class="three-column-grid">
+        <article class="detail-card">
+          <h3>Education</h3>
+          <p class="card-text">Degrees, scholarships, graduations, and academic distinctions across stewardship generations.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Service</h3>
+          <p class="card-text">Military service, civic leadership, volunteer contribution, and public-facing responsibility.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Professional performance</h3>
+          <p class="card-text">Promotions, ventures launched, publications, awards, and standout commercial milestones.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-stack" id="cookbook">
+    <div class="shell">
+      <header class="section-header">
+        <p class="eyebrow">Hospitality Archive</p>
+        <h2>Hospitality standards, ceremonial menus, and cultural records that support institutional identity.</h2>
+        <p class="section-intro">
+          This section reframes culinary content as part of the empire’s cultural archive — preserving
+          hosting standards, ceremonial practices, and the traditions attached to key occasions.
+        </p>
+      </header>
+
+      <div class="two-column-grid">
+        <article class="content-card">
+          <h3>Signature collection</h3>
+          <ul class="detail-list">
+            <li>Signature hospitality offerings and ceremonial staples</li>
+            <li>Recipes handed down through senior generations</li>
+            <li>Preparation notes, service standards, and cultural context</li>
+          </ul>
+        </article>
+        <aside class="detail-card">
+          <h3>Archive scope</h3>
+          <ul class="detail-list">
+            <li>Photography of finished dishes and handwritten source cards</li>
+            <li>Short procedural videos for signature techniques</li>
+            <li>Context on when each menu item is used and who established it</li>
+          </ul>
+        </aside>
+      </div>
+
+      <div class="cta-band">
+        <div>
+          <h3>Ready for curated internal content</h3>
+          <p class="micro-copy">Each section is now structured for controlled population with records, images, biographies, and strategic updates.</p>
+        </div>
+        <a href="#member-access" class="btn btn-primary">Open private access</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-stack" id="member-access">
+    <div class="shell">
+      <header class="section-header">
+        <p class="eyebrow">Private Access</p>
+        <h2>A controlled entry point for internal access, review workflows, and archival contributions.</h2>
+        <p class="section-intro">
+          Until a secure login layer is connected, this section positions the access workflow as an
+          intentional internal process for submissions, approvals, and document control.
+        </p>
+      </header>
+
+      <div class="three-column-grid">
+        <article class="access-card">
+          <h3>For contributors</h3>
+          <p class="card-text">Submit imagery, milestone records, archival documents, and verified updates for controlled publication.</p>
+        </article>
+        <article class="access-card">
+          <h3>For administrators</h3>
+          <p class="card-text">Review records, manage branch structure, and control permissions across private sections of the portal.</p>
+        </article>
+        <article class="access-card">
+          <h3>For visitors</h3>
+          <p class="card-text">Use the contact details below to request corrections, submissions, or access to protected materials.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-stack" id="contact">
+    <div class="shell">
+      <header class="section-header">
+        <p class="eyebrow">Contact</p>
+        <h2>Reach the Haddad Empire directly.</h2>
+        <p class="section-intro">
+          Questions regarding records, access, internal updates, or strategic coordination can be directed to the primary office contact.
+        </p>
+      </header>
+
+      <div class="contact-grid">
+        <article class="contact-card">
+          <h3>Email</h3>
+          <ul class="contact-list">
+            <li><a href="mailto:info@pathwaytoscripture.org">info@pathwaytoscripture.org</a></li>
+            <li>Best for records, approvals, and general administrative inquiries</li>
+          </ul>
+        </article>
+        <article class="contact-card">
+          <h3>Phone</h3>
+          <ul class="contact-list">
+            <li><a href="tel:+61493993301">0493 993 301</a></li>
+            <li>Best for urgent coordination or time-sensitive operational matters</li>
+          </ul>
+        </article>
+        <article class="contact-card">
+          <h3>Primary contact</h3>
+          <ul class="contact-list">
+            <li>Gabby Haddad</li>
+            <li>Coordinator for portal governance, updates, and communications</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <p>&copy; 2026 Haddad Empire. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#top">Back to top</a>
+        <a href="#portal">Portal</a>
+        <a href="#members">Leadership</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>

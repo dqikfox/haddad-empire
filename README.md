@@ -1,11 +1,29 @@
 # Haddad Empire Website
 
-A static HTML/CSS website for Haddad Empire.
+A static HTML/CSS private-office landing page for Haddad Empire.
 
 ## Files
 
-- `index.html` — main page (hero + portal sections)
-- `assets/crest.png` — generated crest logo
+- `index.html` — complete one-page private-office portal
+- `_deploy/index.html` — deployment copy of the live page
+- `assets/Haddad-crest.png` — main crest used on the site
+- `assets/crest.png` — alternate crest asset
+
+## Included sections
+
+- Hero landing section
+- Organizational Structure
+- Heritage
+- Portfolio Archive
+- Records Vault
+- Executive Agenda
+- Leadership Directory
+- Legacy Vault
+- Strategic Ventures
+- Institutional Milestones
+- Hospitality Archive
+- Private Access
+- Contact
 
 ## Deploy to GoDaddy Shared Hosting (cPanel)
 
@@ -37,4 +55,5 @@ If the padlock does not show:
 ## Notes
 
 - This is a static site — no Node.js, no server, no database.
-- The site is designed as a private family portal landing page.
+- The site is a static one-page private-office portal with anchored navigation.
+- `_deploy/` contains the deployment-ready copy of the page.
