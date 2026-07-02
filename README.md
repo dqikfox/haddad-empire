@@ -1,41 +1,40 @@
-# Hadad Family Website
+# Haddad Empire Website
 
-A simple, static family website built with plain HTML, CSS, and JavaScript.
+A static HTML/CSS website for Haddad Empire.
 
 ## Files
 
-- `index.html`
-- `styles.css`
-- `script.js`
+- `index.html` — main page (hero + portal sections)
+- `assets/crest.png` — generated crest logo
 
-## Hosting on GoDaddy
+## Deploy to GoDaddy Shared Hosting (cPanel)
 
-This site is fully compatible with standard GoDaddy shared hosting.
+1. Log in to GoDaddy.
+2. Go to **My Products** → **Web Hosting**.
+3. Click **Manage** next to the hosting plan for `haddadempire.com.au`.
+4. Open **cPanel**.
+5. In cPanel, open **File Manager**.
+6. Navigate to `public_html`.
+7. Delete the existing default `index.html` (if present).
+8. Upload the contents of this folder (`index.html` and the `assets/` folder) into `public_html`.
+9. Visit `https://haddadempire.com.au` and test.
 
-### Option 1: cPanel File Manager
+## Redirect `.com` to `.com.au`
 
-1. Log in to your GoDaddy account.
-2. Open your hosting cPanel.
-3. Open **File Manager**.
-4. Go to your web root folder (`public_html`).
-5. Upload all project files (`index.html`, `styles.css`, `script.js`).
-6. Confirm `index.html` is in `public_html` root.
-7. Visit your domain to verify the site is live.
+In cPanel:
+1. Go to **Redirects**.
+2. Type: Permanent (301).
+3. `https?://(www.)?haddadempire.com` → `https://haddadempire.com.au`.
+4. Check "Wildcard Redirect" if desired.
 
-### Option 2: FTP
+## HTTPS / SSL
 
-1. Use an FTP client (e.g., FileZilla).
-2. Connect using your GoDaddy FTP credentials.
-3. Upload all files to `public_html`.
-4. Ensure `index.html` is in the root of `public_html`.
-
-## Customization
-
-- Edit text content in `index.html`.
-- Adjust colors and layout in `styles.css`.
-- Update interactive behavior in `script.js`.
+If the padlock does not show:
+1. In cPanel, go to **SSL/TLS Status**.
+2. Click **Run AutoSSL**.
+3. Wait a few minutes and refresh.
 
 ## Notes
 
-- The homepage does not display Gaby’s first name.
-- “Gaby Hadad” appears only in the Contact section.
+- This is a static site — no Node.js, no server, no database.
+- The site is designed as a private family portal landing page.

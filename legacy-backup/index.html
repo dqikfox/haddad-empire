@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Hadad Family | Home</title>
+    <meta
+      name="description"
+      content="Welcome to the official Hadad family website — a warm corner of the web where we share our story, celebrate milestones, and stay connected."
+    />
+
+    <meta property="og:title" content="The Hadad Family" />
+    <meta
+      property="og:description"
+      content="The official Hadad family website — celebrating family, milestones, and memories."
+    />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header" id="top">
+      <div class="container nav-wrap">
+        <a class="brand" href="#top" aria-label="Go to homepage">
+          Hadad
+        </a>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Toggle navigation"
+        >
+          Menu
+        </button>
+
+        <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#highlights">Highlights</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section id="home" class="hero reveal">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">Welcome to Our Family</p>
+            <h1>The Hadad Family</h1>
+            <p class="hero-text">
+              We are the Hadads — a family built on love, laughter, and shared
+              memories. This is our corner of the web, where we celebrate who
+              we are and stay connected.
+            </p>
+            <div class="hero-actions">
+              <a class="btn" href="#about">Learn More</a>
+              <a class="btn btn-secondary" href="#contact">Contact Us</a>
+            </div>
+          </div>
+
+          <div class="card hero-card" aria-label="Family at a glance">
+            <h2>Family at a Glance</h2>
+            <ul>
+              <li>Rooted in love and tradition</li>
+              <li>Always making new memories</li>
+              <li>Close-knit and always connected</li>
+              <li>The best is yet to come</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section reveal">
+        <div class="container section-grid">
+          <div>
+            <h2>About Our Family</h2>
+            <p>
+              We are a warm and close-knit family with deep roots and a love
+              for life's simple pleasures. This website is our family's home
+              on the web — a place to share news, celebrate milestones, and
+              stay connected no matter the distance.
+            </p>
+            <p>
+              From family gatherings to everyday adventures, we believe in
+              making memories together. Whether you're a family member, a
+              close friend, or just stopping by — you're always welcome here.
+            </p>
+          </div>
+
+          <aside class="card" aria-label="Our values">
+            <h3>What We Value</h3>
+            <ul>
+              <li>Family above all</li>
+              <li>Honesty and kindness</li>
+              <li>Making time for each other</li>
+              <li>Celebrating every milestone</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="highlights" class="section section-alt reveal">
+        <div class="container">
+          <h2>Family Highlights</h2>
+          <p class="section-intro">
+            A few of the moments, traditions, and milestones that make the
+            Hadad family who we are.
+          </p>
+
+          <div class="cards-grid">
+            <article class="card">
+              <h3>Family Gatherings</h3>
+              <p>
+                From holiday dinners to summer cookouts, bringing everyone
+                together is what we do best. Our get-togethers are filled
+                with great food, loud laughter, and memories that last
+                a lifetime.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Milestones &amp; Achievements</h3>
+              <p>
+                We celebrate every win — big or small. Graduations,
+                birthdays, anniversaries, and everyday achievements all
+                deserve a little extra love from the Hadad family.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Looking Ahead</h3>
+              <p>
+                We are always planning the next adventure, whether it's
+                a family trip, a new tradition, or simply finding more
+                reasons to gather. The best chapters of our story are
+                still being written.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section reveal">
+        <div class="container section-grid">
+          <div>
+            <h2>Contact Us</h2>
+            <p><strong>Contact person:</strong> Gaby Hadad</p>
+            <p><strong>Email:</strong> insert email here</p>
+            <p><strong>Phone:</strong> insert number here</p>
+            <p><strong>Location:</strong> United States</p>
+            <p>
+              <strong>Preferred contact method:</strong>
+              Email
+            </p>
+          </div>
+
+          <aside class="card" aria-label="Get in touch">
+            <h3>Get in Touch</h3>
+            <ul>
+              <li>We'd love to hear from you</li>
+              <li>Family inquiries welcome</li>
+              <li>Response within 1–2 business days</li>
+              <li>All messages appreciated</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>
+          &copy; <span id="year"></span> The Hadad Family. All rights
+          reserved.
+        </p>
+        <a href="#top" class="back-to-top" aria-label="Back to top">Back to top ↑</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
